@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--inside the head, attach all the exteral links-->
+    <!-- we are linking it to css , java script , bootstrap 4-->
+    <!-- because we are using a lot of bootstrap, styling codes-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!--for a responsive website-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Load font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--CSS for sidenav-->
+    <style>
+        .navbar-brand {
+            color: black;
+            font-size: 25px;
+            font-family: 'Gentium Basic', serif;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+
+        a:hover {
+            color: #8b000f;
+        }
+
+        .shrink {
+            padding-top: 0;
+            padding-bottom: 0;
+            background-color: white;
+        }
+
+
+        /* mobile view */
+        @media (max-width: 500px) {
+            .navbar-nav {
+                background-color: #000;
+                border-top: 3px solid #fed136;
+                color: #fff;
+                z-index: 1;
+                margin-top: 5px;
+            }
+
+            .navbar-nav .nav-item .nav-link {
+                padding: 0.7em 1em !important;
+                font-size: 100%;
+                font-weight: 500;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .banner-text {
+                padding: 150px 0 150px 0;
+            }
+
+            .banner-sub-heading {
+                font-size: 23px;
+                font-weight: 200;
+                line-height: 23px;
+                margin-bottom: 40px;
+            }
+        }
+
+        /* The sidebar menu */
+        .sidebar {
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0;
+            left: 0;
+            background-color: white; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.3s; /* 0.5 second transition effect to slide in the sidebar */
+        }
+
+        /* The sidebar links */
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: darkred;
+            display: block;
+            transition: 0.1s;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidebar a:hover {
+            color: black;
+            font-size: x-large;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 36px;
+            margin-right: 5px;
+        }
+
+        /* The button used to open the sidebar */
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: transparent;
+            color: darkred;
+            padding: 10px 15px;
+            border: none;
+        }
+
+        .openbtn:hover {
+            background-color: ghostwhite;
+
+        }
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            transition: margin-right 0.1s; /* If you want a transition effect */
+            padding: 20px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+
+        /* Style the sidenav links and the dropdown button */
+        .dropdown-btn {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: darkred;
+            display: block;
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            text-align: left;
+            cursor: ;
+            outline: none;
+        }
+
+        /* On mouse-over */
+        .dropdown-btn:hover {
+
+            color: black;
+            font-size: x-large;
+        }
+
+        .active {
+            background-color: transparent;
+            color: black;
+            border: none;
+        }
+
+        /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+        .dropdown-container {
+            display: none;
+            background-color: white;
+            padding-left: 20px;
+        }
+
+        .dropdown-item.active, .dropdown-item:active {
+    color: darkred;
+    text-decoration: none;
+    background-color: white;
+}
+
+        /* Optional: Style the caret down icon */
+        .fa-caret-down {
+            float: right;
+            padding-right: 8px;
+        }
+
+        /* Style the video: 100% width and height to cover the entire window */
+        #myVideo {
+            position: relative;
+            right: 15px;
+            bottom: 0;
+            top: 10px;
+            min-width: 50%;
+            min-height: 50%;
+        }
+
+    </style>
+
+    <style>
+        h2 {
+            color: darkred;
+        }
+
+        h3 {
+            color: darkred;
+        }
+
+        body {
+            font-family: 'Timmana', sans-serif;
+            margin: 0;
+
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid darkred;
+        }
+
+        .about-section {
+            padding: 25px;
+            text-align: center;
+            background-color: darkred;
+            color: ghostwhite;
+            margin-top: 10px;
+            margin-left: 0px;
+            width: 20%;
+
+        }
+
+        .container {
+            padding: 0 16px;
+            text-align: center;
+            border-radius: 0px;
+            background-color: transparent;
+            padding: 0 16px;
+            position: relative;
+            display: table;
+        }
+
+        .container::after, .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .btn1 {
+            border-radius: 5px;
+            color: white;
+            background-color: darkred;
+            text-align: center;
+        }
+
+        .btn1:hover {
+            background-color: black;
+            color: ghostwhite;
+        }
+
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
+        .icon-bar {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        /* Style the icon bar links */
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Style the social media icons with color, if you want */
+        .icon-bar a:hover {
+            background-color: black;
+            color: ghostwhite;
+        }
+
+        .facebook {
+            background: darkred;
+            color: white;
+        }
+
+        .twitter {
+            background: darkred;
+            color: white;
+        }
+
+        .google {
+            background: darkred;
+            color: white;
+        }
+
+        .instagram {
+            background: darkred;
+            color: white;
+        }
+
+        .youtube {
+            background: darkred;
+            color: white;
+        }
+    </style>
+
+    <style>
+
+        .gallery-block {
+            padding-bottom: 60px;
+            padding-top: 60px;
+            background-color: ghostwhite;
+        }
+
+        .gallery-block .heading {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .gallery-block .heading h2 {
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        .gallery-block.cards-gallery h3 {
+            font-size: 24px;
+
+        }
+
+        .gallery-block.cards-gallery .card {
+            transition: 0.4s ease;
+            width: 100%;
+            height: 95%;
+            margin: auto;
+            background-color: transparent;
+        }
+
+        .gallery-block.cards-gallery .card img {
+
+        }
+
+        .gallery-block.cards-gallery .card-body {
+            text-align: center;
+        }
+
+        .gallery-block.cards-gallery .card-body p {
+            font-size: 15px;
+        }
+
+        .gallery-block.cards-gallery a {
+            color: darkred;
+        }
+
+        .gallery-block.cards-gallery a:hover {
+            text-decoration: none;
+        }
+
+        .gallery-block.cards-gallery .card {
+            margin-bottom: 30px;
+
+        }
+
+        @media (min-width: 576px) {
+
+            .gallery-block .transform-on-hover:hover {
+                transform: translateY(-10px) scale(1.02);
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) !important;
+            }
+        }
+
+    </style>
+
+    <!--Navbar will be inside head-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="banner">
+        <div class="container-xl">
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="Index.html">
+                <img src="ImagesGallery\Logo1.png" alt="logo" style="width:100px;">
+            </a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <a href="#">Home</a>
+                <a href="#about">About Me</a>
+
+                <div class="dropdown">
+                    <button type="button" class="dropdown-btn" data-toggle="dropdown">My Works
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a class="dropdown-item" href="#my-work">Branding</a>
+                        <a class="dropdown-item" href="#my-work">UX/UI Design</a>
+                        <a class="dropdown-item" href="#my-work">Media</a>
+                    </div>
+                </div>
+                <a href="#feedback">Clients</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div id="main">
+                <button class="openbtn" onclick="openNav()">☰</button>
+            </div>
+    </nav>
+
+    <!-- The video -->
+    <video autoplay muted loop id="myVideo">
+        <source src="Comp 1.mp4" type="video/mp4">
+    </video>
+
+</head>
+
+<body>
+
+<!--About Me-->
+
+<section id="about">
+    <div class="about-section">
+        <h1>About Me</h1>
+    </div>
+    <br>
+    <div class="container-xl">
+
+        <div class="row">  <!-- teel the computer that have row in a grid-->
+            <div class="col"> <!-- this make your screen responsive on large/medium/small screens -->
+                <img src="ImagesGallery/IMG_1467.jpg" class="img-fluid" width="400px" height="100px">
+                <br>
+                <br>
+                <h1 style="color: darkred;"> NGUYEN DINH CUONG </h1>
+                <h2> 26.01.1997</h2>
+                <h2> cuongndse04743@fpt.edu.vn</h2>
+                <br>
+                <p> I am currently looking for a full time position in an environment that offers a greater challenge,
+                    increased benefits for myself, and the opportunity to help the company advance efficiently and
+                    productively.<span
+                            id="dots">...</span><span id="more">
+                                 I am looking to improve my position in the work force, expand my knowledge and skills. I am also looking to establish long term employment in a friendly environment. </span>
+                </p>
+                <button type="button" class="btn1" onclick="myFunction()" id="myBtn1">Read more</button>
+            </div>
+
+
+            <div class="col">
+                <h3> Educations </h3>
+                <ul>
+                    <li>Le Quy Don - Dong Da High school</li>
+                    <p> 2012 - 2015</p>
+                    <br>
+                    <li>Learn Graphic Design in FPT University - Ha Noi</li>
+                    <p> 2015 - 2020</p>
+                </ul>
+                <br>
+
+
+                <h3> Working Experiences</h3>
+                <ul>
+                    <li>Graphic Design Freelancer</li>
+                    <p> 2016 - Now</p>
+                    <br>
+                    <li>Graphic Designer at East Sport - Basketball Shop</li>
+                    <p> 2016 - Now</p>
+                    <br>
+                    <li>Graphic Designer at real estate company Tan Home</li>
+                    <p> 11/2018 - 2/2019</p>
+                    <br>
+                    <li>3D artist intern in Looneyes Studio</li>
+                    <p> 2/2019 - 5/2019</p>
+                </ul>
+                <br>
+            </div>
+
+            <div class="col">
+                <h3>Working Skills</h3>
+                <p>Adobe Illustration</p>
+                <div class="container1">
+                    <div class="skills html">70%</div>
+                </div>
+                <br>
+
+                <p>Adobe Photoshop</p>
+                <div class="container1">
+                    <div class="skills css">70%</div>
+                </div>
+                <br>
+
+                <p>Adobe After Effect</p>
+                <div class="container1">
+                    <div class="skills js">60%</div>
+                </div>
+                <br>
+
+                <p>Figma</p>
+                <div class="container1">
+                    <div class="skills php">60%</div>
+                </div>
+                <br>
+                <br>
+
+
+                <h3>My Hobby</h3>
+                <div class="row">
+                    <div class="col">
+                        <ul>
+                            <li><img src="ImagesGallery/soccer.png" class="img-fluid" width="25px" height="25px"></li>
+                            <br>
+                            <li><img src="ImagesGallery/camera.png" class="img-fluid" width="25px" height="25px"></li>
+                    </div>
+                    <div class="col">
+                        <li><img src="ImagesGallery/game.png" class="img-fluid" width="25px" height="25px"></li>
+                        <br>
+                        <li><img src="ImagesGallery/travel.png" class="img-fluid" width="25px" height="25px"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <style>
+                /* Make sure that padding behaves as expected */
+                * {
+                    box-sizing: border-box
+                }
+
+                /* Container for skill bars */
+                .container1 {
+                    width: 100%; /* Full width */
+                    background-color: ghostwhite;
+                    border-radius: 10px; /* Grey background */
+                }
+
+                .skills {
+                    text-align: center; /* Right-align text */
+                    padding-top: 10px; /* Add top padding */
+                    padding-bottom: 10px; /* Add bottom padding */
+                    color: white; /* White text color */
+                    border-radius: 10px;
+                }
+
+                .html {
+                    width: 70%;
+                    background-color: darkred;
+                }
+
+                /* Green */
+                .css {
+                    width: 70%;
+                    background-color: darkred;
+                }
+
+                /* Blue */
+                .js {
+                    width: 60%;
+                    background-color: darkred;
+                }
+
+                /* Red */
+                .php {
+                    width: 60%;
+                    background-color: darkred;
+                }
+
+                /* Dark Grey */
+
+                #more {
+                    display: none;
+                }
+            </style>
+
+            <!-- javascript code for read more button -->
+            <script>
+              function myFunction() {
+                var dots = document.getElementById("dots");
+                var moreText = document.getElementById("more");
+                var btnText = document.getElementById("myBtn1");
+
+                if (dots.style.display === "none") {
+                  dots.style.display = "inline";
+                  btnText.innerHTML = "Read more";
+                  moreText.style.display = "none";
+                } else {
+                  dots.style.display = "none";
+                  btnText.innerHTML = "Read less";
+                  moreText.style.display = "inline";
+                }
+              }
+            </script>
+        </div>
+    </div>
+</section>
+<!--Works-->
+<br>
+<br>
+<br>
+<br>
+<section>
+    <div class="about-section">
+        <h1>My Works</h1>
+    </div>
+    <section id="my-work"  class="gallery-block cards-gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\ESlogo-01.png">
+                            <img src="ImagesGallery\ESlogo-01.png" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">East Sport - Basketball shop logo</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\Logo1.png">
+                            <img src="ImagesGallery\Logo1.png" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">Personal Logo</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\Logo-02.png">
+                            <img src="ImagesGallery\Logo-02.png" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">Wooball basketball team logo</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\DaiViet.png">
+                            <img src="ImagesGallery\DaiViet.png" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">Dai Viet Local Sport brand</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\Assignment2-01.jpg">
+                            <img src="ImagesGallery\Assignment2-01.jpg" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">EASTSPORT Website Design</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\PosterH1.png">
+                            <img src="ImagesGallery\PosterH1.png" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">HUREMA - Human Resources Manager</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\standee3x3.jpg">
+                            <img src="ImagesGallery\standee3x3.jpg" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">Standee + Banner for 3x3 basketball tournament</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-1 transform-on-hover">
+                        <a class="lightbox" href="ImagesGallery\Brochure.jpg">
+                            <img src="ImagesGallery\Brochure.jpg" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h3><a href="#">Brochure for ThangLong Kidsmart Primary School</a></h3>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!--Client Feedback-->
+    <br>
+    <br>
+    <br>
+
+    <section id="feedback">
+        <div class="about-section">
+            <h1>Client Feedbacks</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="ImagesGallery/aThinh.jpg" alt="Jane" style="width:100%">
+                        <div class="container">
+                            <br>
+                            <h3>Tran Linh</h3>
+                            <p class="title">Founder of EASTSPORT</p>
+                            <p>I am very pleased with your designs, they bring very good value to our brand. Glad to
+                                work with you!.</p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="ImagesGallery/cNgoc.jpg" alt="Mike" style="width:100%">
+                        <div class="container">
+                            <br>
+                            <h2>Nghiem Ngoc</h2>
+                            <p class="title">Founder Wooball</p>
+                            <p>I am very pleased with your designs, they bring very good value to our brand. Glad to
+                                work with you!.</p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="ImagesGallery/Long.jpg" alt="John" style="width:100%">
+                        <div class="container">
+                            <br>
+                            <h2>Jacob</h2>
+                            <p class="title">CEO Dai Viet</p>
+                            <p>I am very pleased with your designs, they bring very good value to our brand. Glad to
+                                work with you!.</p>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!--Contact Me-->
+    <br>
+    <br>
+    <br>
+
+    <section id="contact">
+        <div class="about-section">
+            <h1>Hire Me</h1>
+        </div>
+
+        <div class="container-sm">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112061.09262729759!2d77.208022!3d28.632485!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x644e33bc3def0667!2sIndior+Tours+Pvt+Ltd.!5e0!3m2!1sen!2sus!4v1527779731123"
+                        width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="contact-form">
+
+                <h1 style="color: darkred;" class="subtitle">Please contact to me !.</h1>
+                <form action="">
+                    <input type="text" name="name" placeholder="Your Name"/>
+                    <input type="email" name="e-mail" placeholder="Your E-mail Adress"/>
+                    <input type="tel" name="phone" placeholder="Your Phone Number"/>
+                    <textarea name="text" id="" rows="8" placeholder="Your Message"></textarea>
+                    <button class="btn-send">Keep In Touch</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .container-sm {
+            background: transparent;
+            width: 2000px;
+            height: 650px;
+            margin: 5% auto;
+            position: relative;
+        }
+
+        .container-sm .map {
+            width: 45%;
+            float: left;
+        }
+
+        .container-sm .contact-form {
+            width: 54%;
+            margin-left: 1%;
+            float: left;
+        }
+
+        .container-sm .contact-form .title {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #242424;
+            margin: 5% 8%;
+        }
+
+        .container-sm .contact-form .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            margin: 0 4% 5% 8%;
+        }
+
+        .container-sm .contact-form input,
+        .container-sm .contact-form textarea {
+            width: 545px;
+            padding: 3%;
+            margin: 2% 8%;
+            color: black;
+            border: 1px solid darkred;
+        }
+
+        .container-sm .contact-form input::placeholder,
+        .container-sm .contact-form textarea::placeholder {
+            color: darkred;
+        }
+
+        .container-sm .contact-form .btn-send {
+            background: darkred;
+            width: 180px;
+            height: 60px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin: 2% 8%;
+            border-radius: 5px;
+
+        }
+
+        .container-sm .contact-form .btn-send:hover {
+            background-color: black;
+            color: ghostwhite;
+        }
+    </style>
+
+
+    <!-- Footer -->
+    <section>
+        <style>
+            .footer {
+                position: sticky;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: darkred;
+                color: white;
+                text-align: center;
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+        </style>
+
+        <!-- css code for social media buttons -->
+
+        <div class="footer">
+            <img src="ImagesGallery\LogoCaNhan.png" style="width: 10%;"></img>
+            <p>May i even further interest you?</p>
+            <p>cuongndse04743@fpt.edu.vn</p>
+            <p>All right reserved. Copy right 2020</p>
+
+
+        </div>
+
+        <!-- The social media icon bar -->
+        <div class="icon-bar">
+            <a href="https://www.facebook.com/cuongg0126" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="google"><i class="fa fa-google"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div>
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- Javascript code for navbar-->
+        <script>
+          $(document).ready(function () {
+            $(document).on("scroll", function () {
+              if
+              ($(document).scrollTop() > 86) {
+                $("#banner").addClass("shrink");
+              } else {
+                $("#banner").removeClass("shrink");
+              }
+            });
+          });
+
+          /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+          function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+          }
+
+          /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+          }
+
+          //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+          var dropdown = document.getElementsByClassName("dropdown-btn");
+          var i;
+
+          for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+              this.classList.toggle("active");
+              var dropdownContent = this.nextElementSibling;
+              if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+              } else {
+                dropdownContent.style.display = "block";
+              }
+            });
+          }
+
+
+        </script>
+
+        <script>
+          filterSelection("all") // Execute the function and show all columns
+          function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("column");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+              w3RemoveClass(x[i], "show");
+              if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+          }
+
+          // Show filtered elements
+          function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+              }
+            }
+          }
+
+          // Hide elements that are not selected
+          function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+              }
+            }
+            element.className = arr1.join(" ");
+          }
+
+          // Add active class to the current button (highlight it)
+          var btnContainer = document.getElementById("myBtnContainer");
+          var btns = btnContainer.getElementsByClassName("btn");
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+            });
+          }
+        </script>
+
+
+        <script>
+          baguetteBox.run('.cards-gallery', { animation: 'slideIn' });
+        </script>
+</body>
+</html>
